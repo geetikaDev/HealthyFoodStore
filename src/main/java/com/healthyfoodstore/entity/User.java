@@ -45,7 +45,7 @@ public class User {
 	@Column(name="address", nullable=false, length=255)
 	private String address;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="role_id", nullable=false)
 	private Role role;
 

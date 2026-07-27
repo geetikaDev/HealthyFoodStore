@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.healthyfoodstore.dto.LoginRequest;
+import com.healthyfoodstore.dto.LoginResponse;
 import com.healthyfoodstore.dto.RegisterRequest;
 import com.healthyfoodstore.service.UserService;
 
@@ -27,6 +29,12 @@ public class AuthController {
 	public ResponseEntity<String> registerUser(@Valid @RequestBody RegisterRequest request){
 		String message = userService.registerUser(request);
 		return new ResponseEntity<>(message, HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/login")
+	public ResponseEntity<LoginResponse> loginUser(@RequestBody LoginRequest request){
+		LoginResponse response = userService.loginUser(request);
+		return ResponseEntity.ok(response);
 	}
 
 }
