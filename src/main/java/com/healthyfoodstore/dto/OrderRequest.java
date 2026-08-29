@@ -1,14 +1,16 @@
 package com.healthyfoodstore.dto;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class OrderRequest {
-	
-	private String customerName;
+
+    private String customerName;
     private String email;
     private String phone;
     private String address;
-
+    private BigDecimal totalAmount;
+    
     private List<OrderItemRequest> items;
 
     public String getCustomerName() {
@@ -43,11 +45,21 @@ public class OrderRequest {
         this.address = address;
     }
 
-    public List<OrderItemRequest> getItems() {
-        return items;
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
     }
 
-    public void setItems(List<OrderItemRequest> items) {
-        this.items = items;
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
     }
+
+	public List<OrderItemRequest> getItems() {
+		return items;
+	}
+
+	public void setItems(List<OrderItemRequest> items) {
+		this.items = items;
+	}
+    
+    
 }
