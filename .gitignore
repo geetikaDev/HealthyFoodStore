@@ -1,44 +1,53 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# =====================================================
+# ANGULAR
+# =====================================================
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+node_modules/
+dist/
+.angular/
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# Angular environment files containing secrets
+# Uncomment these only if they contain sensitive values
+# src/environments/environment.ts
+# src/environments/environment.prod.ts
 
-# IDEs and editors
+
+# =====================================================
+# SPRING BOOT
+# =====================================================
+
+target/
+*.class
+
+# Spring Boot local configuration
+# Keep your real application.properties local if it contains secrets
+src/main/resources/application.properties
+
+# Keep local secrets/configuration out of Git
+*.env
+
+
+# =====================================================
+# IDE
+# =====================================================
+
+.vscode/
 .idea/
-.project
 .classpath
-.c9/
-*.launch
+.project
 .settings/
-*.sublime-workspace
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/mcp.json
-.history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
+# =====================================================
+# LOGS
+# =====================================================
 
-# System files
+*.log
+
+
+# =====================================================
+# OS
+# =====================================================
+
 .DS_Store
 Thumbs.db
