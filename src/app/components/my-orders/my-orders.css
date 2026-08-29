@@ -1,0 +1,541 @@
+/* =====================================================
+   CLICKABLE ORDER CARD
+===================================================== */
+
+.order-card {
+    cursor: pointer;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+
+.order-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   VIEW ORDER
+===================================================== */
+
+.view-order {
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #eeeeee;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #198754;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+.view-arrow {
+
+    font-size: 20px;
+
+    transition: transform 0.2s ease;
+
+}
+
+
+.order-card:hover .view-arrow {
+
+    transform: translateX(5px);
+
+}
+
+
+/* =====================================================
+   MODAL BACKDROP
+===================================================== */
+
+.order-modal-backdrop {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+
+    animation: fadeIn 0.2s ease;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.order-modal {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+
+    animation: modalSlide 0.25s ease;
+
+}
+
+
+/* =====================================================
+   MODAL HEADER
+===================================================== */
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+
+.modal-label {
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+.modal-header h2 {
+
+    margin: 5px 0 0;
+
+    font-size: 26px;
+
+}
+
+
+.close-btn {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f5f5f5;
+
+    color: #555;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+}
+
+
+.close-btn:hover {
+
+    background: #eeeeee;
+
+}
+
+
+/* =====================================================
+   ORDER TIME
+===================================================== */
+
+.order-time {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px 0;
+
+}
+
+
+.order-time > span {
+
+    font-size: 24px;
+
+}
+
+
+.order-time small {
+
+    display: block;
+
+    color: #888;
+
+    margin-bottom: 3px;
+
+}
+
+
+.order-time strong {
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   MODAL SECTION
+===================================================== */
+
+.modal-section {
+
+    padding: 20px 0;
+
+    border-top: 1px solid #eeeeee;
+
+}
+
+
+.modal-section h3 {
+
+    font-size: 18px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =====================================================
+   CUSTOMER GRID
+===================================================== */
+
+.customer-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.customer-grid small {
+
+    display: block;
+
+    color: #888;
+
+    margin-bottom: 4px;
+
+    font-size: 12px;
+
+}
+
+
+.customer-grid strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    word-break: break-word;
+
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.product-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 14px;
+
+    background: #fafafa;
+
+    border-radius: 10px;
+
+}
+
+
+.product-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.product-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 21px;
+
+}
+
+
+.product-info strong {
+
+    display: block;
+
+    font-size: 15px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.product-info small {
+
+    color: #888;
+
+}
+
+
+.product-subtotal {
+
+    font-weight: 700;
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   NO ITEMS
+===================================================== */
+
+.no-items {
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: #fafafa;
+
+    border-radius: 10px;
+
+    color: #888;
+
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.modal-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 0;
+
+    margin-top: 5px;
+
+    border-top: 1px solid #eeeeee;
+
+    font-size: 17px;
+
+}
+
+
+.modal-total strong {
+
+    color: #198754;
+
+    font-size: 24px;
+
+}
+
+
+/* =====================================================
+   DONE BUTTON
+===================================================== */
+
+.done-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #198754;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.done-btn:hover {
+
+    background: #146c43;
+
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes modalSlide {
+
+    from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .order-modal {
+
+        padding: 20px;
+
+        max-height: 92vh;
+
+        border-radius: 15px;
+
+    }
+
+
+    .customer-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+    }
+
+
+    .modal-header h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .product-row {
+
+        align-items: flex-start;
+
+    }
+
+
+    .product-subtotal {
+
+        margin-left: 10px;
+
+        white-space: nowrap;
+
+    }
+
+}

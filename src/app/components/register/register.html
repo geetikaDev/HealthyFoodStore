@@ -1,0 +1,152 @@
+<div class="container mt-5">
+
+    <div class="row shadow-lg rounded-4 overflow-hidden">
+
+        <!-- Left Panel -->
+
+        <div class="col-md-6 left-panel">
+
+            <div>
+
+                <img
+                    src="images/logo.png"
+                    width="140"
+                    class="mb-4">
+
+                <h2>Join Swaad Junction</h2>
+
+                <p class="mt-3">
+
+                    Create your account and enjoy authentic homemade snacks,
+                    healthy treats and delicious beverages.
+
+                </p>
+
+                <ul class="list-unstyled mt-4">
+
+                    <li>🥗 Healthy Products</li>
+
+                    <li>🌾 Fresh Ingredients</li>
+
+                    <li>🚚 Fast & Safe Delivery</li>
+
+                    <li>❤️ Trusted by Food Lovers</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Register Form -->
+
+        <div class="col-md-6 bg-white p-5">
+
+            <h3 class="text-center mb-4">
+
+                Create Account
+
+            </h3>
+
+            <div class="row">
+
+    <div class="col-md-6 mb-3">
+
+        <label>First Name</label>
+
+        <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="firstName">
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+        <label>Last Name</label>
+
+        <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="lastName">
+
+    </div>
+
+</div>
+
+            <div class="mb-3">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    [(ngModel)]="email">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Phone Number</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="phone">
+
+            </div>
+
+            <div class="mb-3">
+
+    <label>Delivery Address</label>
+
+    <textarea
+        rows="3"
+        class="form-control"
+        [(ngModel)]="address">
+    </textarea>
+
+</div>
+
+            <div class="mb-4">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    class="form-control"
+                    [(ngModel)]="password">
+
+            </div>
+
+            <button
+                class="btn-register w-100"
+                (click)="register()">
+
+                Create Account
+
+            </button>
+
+            <p class="text-center mt-4">
+
+                Already have an account?
+
+                <a routerLink="/login">
+
+                    Login
+
+                </a>
+
+            </p>
+
+            <p class="text-center slogan">
+
+                🍲 Good Food Begins With Good Choices
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,127 @@
+.page-title{
+
+    color:#6F4E37;
+
+}
+
+.success-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:50px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    border-top:8px solid #F4A300;
+
+}
+
+.success-icon{
+
+    width:120px;
+
+    height:120px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#F4A300;
+
+    color:white;
+
+    font-size:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    animation:pop .6s;
+
+}
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(.5);
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.success-card h2{
+
+    color:#6F4E37;
+
+    font-weight:bold;
+
+}
+
+.success-text{
+
+    color:#8B5E3C;
+
+    font-size:18px;
+
+}
+
+.order-info{
+
+    background:#FFF8E6;
+
+    padding:20px;
+
+    border-radius:12px;
+
+}
+
+.delivery-date{
+
+    color:#C62828;
+
+    font-weight:bold;
+
+}
+
+.btn-shop{
+
+    background:#F4A300;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 35px;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-shop:hover{
+
+    background:#D98E04;
+
+    transform:translateY(-3px);
+
+}

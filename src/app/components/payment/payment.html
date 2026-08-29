@@ -1,0 +1,200 @@
+<div class="container mt-5">
+
+    <!-- Heading -->
+
+    <h2 class="text-center page-title">
+        💳 Payment
+    </h2>
+
+    <p class="text-center subtitle">
+        Securely complete your order at Swaad Junction.
+    </p>
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="payment-card">
+
+                <h4 class="mb-4">
+                    Select Payment Method
+                </h4>
+
+                <!-- UPI -->
+
+                <div class="form-check payment-option">
+
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="paymentMethod"
+                        id="upi"
+                        value="UPI"
+                        [(ngModel)]="paymentMethod">
+
+                    <label
+                        class="form-check-label"
+                        for="upi">
+
+                        📱 UPI (Google Pay / PhonePe / Paytm)
+
+                    </label>
+
+                </div>
+
+                @if(paymentMethod === 'UPI'){
+
+                <div class="mt-3">
+
+                    <label class="form-label">
+                        UPI ID
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="example@okaxis"
+                        [(ngModel)]="upiId">
+
+                </div>
+
+                }
+
+                <!-- Card -->
+
+                <div class="form-check payment-option mt-3">
+
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="paymentMethod"
+                        id="card"
+                        value="CARD"
+                        [(ngModel)]="paymentMethod">
+
+                    <label
+                        class="form-check-label"
+                        for="card">
+
+                        💳 Credit / Debit Card
+
+                    </label>
+
+                </div>
+
+                @if(paymentMethod === 'CARD'){
+
+                <div class="mt-3">
+
+                    <label class="form-label">
+                        Card Number
+                    </label>
+
+                    <input
+                        class="form-control mb-3"
+                        placeholder="1234 5678 9012 3456"
+                        [(ngModel)]="cardNumber">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Expiry Date
+                            </label>
+
+                            <input
+                                class="form-control"
+                                placeholder="MM/YY"
+                                [(ngModel)]="expiry">
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                CVV
+                            </label>
+
+                            <input
+                                type="password"
+                                maxlength="3"
+                                class="form-control"
+                                placeholder="123"
+                                [(ngModel)]="cvv">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                }
+
+                <!-- COD -->
+
+                <div class="form-check payment-option mt-3">
+
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="paymentMethod"
+                        id="cod"
+                        value="COD"
+                        [(ngModel)]="paymentMethod">
+
+                    <label
+                        class="form-check-label"
+                        for="cod">
+
+                        🚚 Cash on Delivery
+
+                    </label>
+
+                </div>
+
+                @if(paymentMethod === 'COD'){
+
+                <div class="alert alert-warning mt-3">
+
+                    Pay cash when your order is delivered.
+
+                </div>
+
+                }
+
+                <hr>
+
+                <!-- Order Summary -->
+
+                <div class="payment-summary">
+
+                    <div class="d-flex justify-content-between">
+
+                        <span>Total Amount</span>
+
+                        <span class="total">
+
+                            ₹{{getTotal()}}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="btn-pay mt-4"
+                    (click)="payNow()">
+
+                    Pay ₹{{getTotal()}}
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

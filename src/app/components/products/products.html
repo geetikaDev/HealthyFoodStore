@@ -1,0 +1,952 @@
+<!-- =====================================================
+     TOAST MESSAGE
+
+
+@if(showToast) {
+
+    <div class="custom-toast">
+        🛒 {{ toastMessage }}
+    </div>
+
+}
+===================================================== -->
+
+<!-- =====================================================
+     PRODUCTS PAGE
+===================================================== -->
+
+<div class="products-page">
+
+    <!-- PAGE TITLE -->
+
+    <div class="products-heading">
+
+        <h1>
+            Our Products
+        </h1>
+
+        <p>
+            Traditional taste, homemade goodness ❤️
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+         LOADING
+    ================================================= -->
+
+    @if(loading) {
+
+        <div class="loading-section">
+
+            <div
+                class="spinner-border text-success"
+                role="status">
+            </div>
+
+            <p>
+                Loading our delicious products...
+            </p>
+
+        </div>
+
+    }
+
+
+    <!-- =================================================
+         PRODUCTS
+    ================================================= -->
+
+    @else {
+
+        @if(products.length === 0 && searchTerm){
+            <div class="no-products">
+                <div class="no-products-icon">
+                </div>
+                <h2>
+                    No Products Found
+                </h2>
+                <p>
+                    We couldn't find any product matching
+            "<strong>{{ searchTerm }}</strong>"
+                </p>
+                <a routerLink="/products" class="shop-all-btn">
+                    View All Products
+                </a>
+            </div> 
+        }
+
+
+        <!-- =================================================
+             SNACKS
+        ================================================= -->
+
+        @if(getProductsByCategory('Snacks').length > 0) {
+
+            <section class="category-section">
+
+                <div class="category-title">
+                    <span>Snacks</span>
+                </div>
+
+
+                <div class="product-grid">
+
+                    @for(
+                        product of getProductsByCategory('Snacks');
+                        track product.productId
+                    ) {
+
+                        <div class="product-card">
+
+
+                            <!-- PRODUCT IMAGE -->
+
+                            <div class="product-image-wrapper">
+
+                                <img
+                                    [src]="product.imageUrl"
+                                    [alt]="product.productName"
+                                    class="product-image">
+
+
+                                <!-- WISHLIST -->
+
+                                <button
+                                    class="wishlist-btn"
+                                    type="button">
+
+                                    ♡
+
+                                </button>
+
+
+                                <!-- CATEGORY LABEL -->
+
+                                <span class="image-category">
+
+                                    Snacks
+
+                                </span>
+
+                            </div>
+
+
+
+                            <!-- PRODUCT INFORMATION -->
+
+                            <div class="product-info">
+
+
+                                <h3 class="product-name">
+
+                                    {{ product.productName }}
+
+                                </h3>
+
+
+                                <p class="product-description">
+
+                                    {{ product.description }}
+
+                                </p>
+
+
+                                <!-- PRICE -->
+
+                                <div class="price-row">
+
+                                    <span class="product-price">
+
+                                        ₹{{ product.price }}
+
+                                    </span>
+
+
+                                    <span class="stock-status">
+
+                                        ● In Stock
+
+                                    </span>
+
+                                </div>
+
+
+
+                                <!-- ADD TO CART -->
+
+                                @if(getQuantity(product) == 0) {
+
+                                    <button
+                                        class="add-cart-btn"
+                                        (click)="addToCart(product)">
+
+                                        🛒
+                                        Add to Cart
+
+                                    </button>
+
+                                }
+
+                                @else {
+
+                                    <div class="quantity-box">
+
+                                        <button
+                                            class="qty-btn minus-btn"
+                                            (click)="decrease(product)">
+
+                                            −
+
+                                        </button>
+
+
+                                        <span class="qty-number">
+
+                                            {{ getQuantity(product) }}
+
+                                        </span>
+
+
+                                        <button
+                                            class="qty-btn plus-btn"
+                                            (click)="increase(product)">
+
+                                            +
+
+                                        </button>
+
+                                    </div>
+
+                                }
+
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            </section>
+
+        }
+
+
+
+        <!-- =================================================
+             DRINKS
+        ================================================= -->
+
+        @if(getProductsByCategory('Drinks').length > 0) {
+
+            <section class="category-section">
+
+                <div class="category-title">
+                    <span>Drinks</span>
+                </div>
+
+
+                <div class="product-grid">
+
+                    @for(
+                        product of getProductsByCategory('Drinks');
+                        track product.productId
+                    ) {
+
+                        <div class="product-card">
+
+                            <div class="product-image-wrapper">
+
+                                <img
+                                    [src]="product.imageUrl"
+                                    [alt]="product.productName"
+                                    class="product-image">
+
+
+                                <button
+                                    class="wishlist-btn"
+                                    type="button">
+
+                                    ♡
+
+                                </button>
+
+
+                                <span class="image-category">
+
+                                    Drinks
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-info">
+
+                                <h3 class="product-name">
+
+                                    {{ product.productName }}
+
+                                </h3>
+
+
+                                <p class="product-description">
+
+                                    {{ product.description }}
+
+                                </p>
+
+
+                                <div class="price-row">
+
+                                    <span class="product-price">
+
+                                        ₹{{ product.price }}
+
+                                    </span>
+
+                                    <span class="stock-status">
+
+                                        ● In Stock
+
+                                    </span>
+
+                                </div>
+
+
+                                @if(getQuantity(product) == 0) {
+
+                                    <button
+                                        class="add-cart-btn"
+                                        (click)="addToCart(product)">
+
+                                        🛒
+                                        Add to Cart
+
+                                    </button>
+
+                                }
+
+                                @else {
+
+                                    <div class="quantity-box">
+
+                                        <button
+                                            class="qty-btn minus-btn"
+                                            (click)="decrease(product)">
+
+                                            −
+
+                                        </button>
+
+                                        <span class="qty-number">
+
+                                            {{ getQuantity(product) }}
+
+                                        </span>
+
+                                        <button
+                                            class="qty-btn plus-btn"
+                                            (click)="increase(product)">
+
+                                            +
+
+                                        </button>
+
+                                    </div>
+
+                                }
+
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            </section>
+
+        }
+
+
+
+        <!-- =================================================
+             WAFERS
+        ================================================= -->
+
+        @if(getProductsByCategory('Wafers').length > 0) {
+
+            <section class="category-section">
+
+                <div class="category-title">
+
+                    <span>Wafers</span>
+
+                </div>
+
+
+                <div class="product-grid">
+
+                    @for(
+                        product of getProductsByCategory('Wafers');
+                        track product.productId
+                    ) {
+
+                        <div class="product-card">
+
+                            <div class="product-image-wrapper">
+
+                                <img
+                                    [src]="product.imageUrl"
+                                    [alt]="product.productName"
+                                    class="product-image">
+
+
+                                <button
+                                    class="wishlist-btn"
+                                    type="button">
+
+                                    ♡
+
+                                </button>
+
+
+                                <span class="image-category">
+
+                                    Wafers
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-info">
+
+                                <h3 class="product-name">
+
+                                    {{ product.productName }}
+
+                                </h3>
+
+
+                                <p class="product-description">
+
+                                    {{ product.description }}
+
+                                </p>
+
+
+                                <div class="price-row">
+
+                                    <span class="product-price">
+
+                                        ₹{{ product.price }}
+
+                                    </span>
+
+                                    <span class="stock-status">
+
+                                        ● In Stock
+
+                                    </span>
+
+                                </div>
+
+
+                                @if(getQuantity(product) == 0) {
+
+                                    <button
+                                        class="add-cart-btn"
+                                        (click)="addToCart(product)">
+
+                                        🛒
+                                        Add to Cart
+
+                                    </button>
+
+                                }
+
+                                @else {
+
+                                    <div class="quantity-box">
+
+                                        <button
+                                            class="qty-btn minus-btn"
+                                            (click)="decrease(product)">
+
+                                            −
+
+                                        </button>
+
+                                        <span class="qty-number">
+
+                                            {{ getQuantity(product) }}
+
+                                        </span>
+
+                                        <button
+                                            class="qty-btn plus-btn"
+                                            (click)="increase(product)">
+
+                                            +
+
+                                        </button>
+
+                                    </div>
+
+                                }
+
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            </section>
+
+        }
+
+
+
+        <!-- =================================================
+             DAILY SPECIALS
+        ================================================= -->
+
+        @if(getProductsByCategory('Daily Specials').length > 0) {
+
+            <section class="category-section">
+
+                <div class="category-title">
+
+                    <span>Daily Specials</span>
+
+                </div>
+
+
+                <div class="product-grid">
+
+                    @for(
+                        product of getProductsByCategory('Daily Specials');
+                        track product.productId
+                    ) {
+
+                        <div class="product-card">
+
+                            <div class="product-image-wrapper">
+
+                                <img
+                                    [src]="product.imageUrl"
+                                    [alt]="product.productName"
+                                    class="product-image">
+
+
+                                <button
+                                    class="wishlist-btn"
+                                    type="button">
+
+                                    ♡
+
+                                </button>
+
+
+                                <span class="image-category">
+
+                                    Daily Specials
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-info">
+
+                                <h3 class="product-name">
+
+                                    {{ product.productName }}
+
+                                </h3>
+
+
+                                <p class="product-description">
+
+                                    {{ product.description }}
+
+                                </p>
+
+
+                                <div class="price-row">
+
+                                    <span class="product-price">
+
+                                        ₹{{ product.price }}
+
+                                    </span>
+
+                                    <span class="stock-status">
+
+                                        ● In Stock
+
+                                    </span>
+
+                                </div>
+
+
+                                @if(getQuantity(product) == 0) {
+
+                                    <button
+                                        class="add-cart-btn"
+                                        (click)="addToCart(product)">
+
+                                        🛒
+                                        Add to Cart
+
+                                    </button>
+
+                                }
+
+                                @else {
+
+                                    <div class="quantity-box">
+
+                                        <button
+                                            class="qty-btn minus-btn"
+                                            (click)="decrease(product)">
+
+                                            −
+
+                                        </button>
+
+                                        <span class="qty-number">
+
+                                            {{ getQuantity(product) }}
+
+                                        </span>
+
+                                        <button
+                                            class="qty-btn plus-btn"
+                                            (click)="increase(product)">
+
+                                            +
+
+                                        </button>
+
+                                    </div>
+
+                                }
+
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            </section>
+
+        }
+
+
+
+        <!-- =================================================
+             FESTIVE FOODS
+        ================================================= -->
+
+        @if(getProductsByCategory('Festive Foods').length > 0) {
+
+            <section class="category-section">
+
+                <div class="category-title">
+
+                    <span>Festive Foods</span>
+
+                </div>
+
+
+                <div class="product-grid">
+
+                    @for(
+                        product of getProductsByCategory('Festive Foods');
+                        track product.productId
+                    ) {
+
+                        <div class="product-card">
+
+                            <div class="product-image-wrapper">
+
+                                <img
+                                    [src]="product.imageUrl"
+                                    [alt]="product.productName"
+                                    class="product-image">
+
+
+                                <button
+                                    class="wishlist-btn"
+                                    type="button">
+
+                                    ♡
+
+                                </button>
+
+
+                                <span class="image-category">
+
+                                    Festive Foods
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-info">
+
+                                <h3 class="product-name">
+
+                                    {{ product.productName }}
+
+                                </h3>
+
+
+                                <p class="product-description">
+
+                                    {{ product.description }}
+
+                                </p>
+
+
+                                <div class="price-row">
+
+                                    <span class="product-price">
+
+                                        ₹{{ product.price }}
+
+                                    </span>
+
+                                    <span class="stock-status">
+
+                                        ● In Stock
+
+                                    </span>
+
+                                </div>
+
+                                <button
+    class="add-cart-btn"
+    type="button"
+    (click)="addToCart(product)">
+
+    🛒
+    Add to Cart
+
+</button>
+
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            </section>
+
+        }
+
+
+    }
+    <!-- =====================================================
+     QUANTITY MODAL
+===================================================== -->
+
+@if(showQuantityModal && selectedProduct) {
+
+    <div
+        class="product-modal-overlay"
+        (click)="closeQuantityModal()">
+
+
+        <div
+            class="product-quantity-modal"
+            (click)="$event.stopPropagation()">
+
+
+            <!-- =================================================
+                 CLOSE
+            ================================================= -->
+
+            <button
+                type="button"
+                class="product-modal-close"
+                (click)="closeQuantityModal()">
+
+                ×
+
+            </button>
+
+
+            <!-- =================================================
+                 LOGO
+            ================================================= -->
+
+            <div class="modal-brand">
+
+                <div class="modal-logo">
+                    <img src="/images/logo.png"/>
+                </div>
+
+                <div class="modal-brand-name">
+                    Swaad Junction
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRODUCT IMAGE
+            ================================================= -->
+
+            <div class="modal-product-image-wrapper">
+
+                <img
+                    [src]="selectedProduct.imageUrl"
+                    [alt]="selectedProduct.productName"
+                    class="modal-product-image">
+
+            </div>
+
+
+            <!-- =================================================
+                 PRODUCT NAME
+            ================================================= -->
+
+            <h2 class="modal-product-name">
+
+                {{ selectedProduct.productName }}
+
+            </h2>
+
+
+            <!-- =================================================
+                 PRICE PER KG
+            ================================================= -->
+
+            <div class="modal-price-per-kg">
+
+                ₹{{ selectedProduct.price | number:'1.2-2' }}
+
+                <span>
+                    / Kg
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUANTITY
+            ================================================= -->
+
+            <div class="modal-quantity-section">
+
+                <label>
+                    Select Quantity
+                </label>
+
+
+                <div class="modal-quantity-row">
+
+
+                    <!-- NUMBER -->
+
+                    <input
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        [(ngModel)]="selectedQuantity"
+                        (input)="calculateAmount()"
+                        placeholder="Enter quantity"
+                        class="modal-quantity-input">
+
+
+                    <!-- UNIT -->
+
+                    <select
+                        [(ngModel)]="selectedUnit"
+                        (change)="calculateAmount()"
+                        class="modal-unit-select">
+
+                        <option value="g">
+                            Gram
+                        </option>
+
+                        <option value="kg">
+                            Kilogram
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CALCULATED PRICE
+            ================================================= -->
+
+            <div class="modal-calculated-price">
+
+                <span>
+                    Total Amount
+                </span>
+
+                <strong>
+                    ₹{{ calculatedAmount | number:'1.2-2' }}
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 BUTTONS
+            ================================================= -->
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel-btn"
+                    (click)="closeQuantityModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="modal-add-btn"
+                    [disabled]="
+                        !selectedQuantity ||
+                        selectedQuantity <= 0
+                    "
+                    (click)="confirmAddToCart()">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+}
+
+</div>

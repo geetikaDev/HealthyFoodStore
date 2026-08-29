@@ -1,0 +1,364 @@
+<!-- =====================================================
+    HERO SLIDER
+===================================================== -->
+
+<section class="hero-section">
+
+    <!-- SLIDER VIEWPORT -->
+    <div class="hero-image">
+
+        <!-- SLIDER TRACK -->
+        <div
+            class="slider-track"
+            [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+
+            <div
+                class="slide"
+                *ngFor="let slide of slides">
+
+                <img
+                    [src]="slide"
+                    alt="Swaad Junction">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO CONTENT OVER IMAGE -->
+
+    <div class="hero-content">
+
+        <button
+            class="shop-btn"
+            (click)="goToProducts()">
+
+            Shop Now
+
+        </button>
+
+    </div>
+
+
+    <!-- LEFT ARROW -->
+
+    <button
+        class="slider-arrow left-arrow"
+        (click)="previousSlide()">
+
+        &lt;
+
+    </button>
+
+
+    <!-- RIGHT ARROW -->
+
+    <button
+        class="slider-arrow right-arrow"
+        (click)="nextSlide()">
+
+        &gt;
+
+    </button>
+
+</section>
+
+
+
+    <!-- =====================================================
+        CATEGORIES
+    ===================================================== -->
+
+    <section class="categories-section">
+
+
+        <h2>
+            Explore Our Categories
+        </h2>
+
+
+        <p class="section-subtitle">
+            Discover delicious homemade favorites
+        </p>
+
+
+        <!-- CATEGORY GRID -->
+
+        <div class="category-grid">
+
+
+            <!-- CATEGORY 1 -->
+
+            <div
+                class="category-card"
+                routerLink="/products">
+
+                <div class="category-image">
+
+                    <img
+                        src="/images/SnackCategory.png"
+                        alt="Snacks">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CATEGORY 2 -->
+
+            <div
+                class="category-card"
+                routerLink="/products">
+
+                <div class="category-image">
+
+                    <img
+                        src="/images/DrinkCategory.png"
+                        alt="Drinks">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CATEGORY 3 -->
+
+            <div
+                class="category-card"
+                routerLink="/products">
+
+                <div class="category-image">
+
+                    <img
+                        src="/images/WafersCategory.png"
+                        alt="Wafers">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CATEGORY 4 -->
+
+            <div
+                class="category-card"
+                routerLink="/products">
+
+                <div class="category-image">
+
+                    <img
+                        src="/images/DailySpecialsCategory.png"
+                        alt="Daily Specials">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CATEGORY 5 -->
+
+            <div
+                class="category-card"
+                routerLink="/products">
+
+                <div class="category-image">
+
+                    <img
+                        src="/images/FestiveFood.png"
+                        alt="Festive Food">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     OFFERS
+===================================================== -->
+
+<section class="offers-section">
+
+    <h2>
+        🎁 Special Offers
+    </h2>
+
+    <p class="section-subtitle">
+        Delicious deals made just for you
+    </p>
+
+
+    <div class="offer-grid">
+
+
+        <!-- =================================================
+             OFFER 1
+        ================================================= -->
+
+        <div class="offer-card">
+
+            <div class="offer-left">
+
+                <span class="offer-icon">
+                    🎁
+                </span>
+
+                <span class="offer-label">
+                    WELCOME OFFER
+                </span>
+
+                <h3>
+                    10% OFF
+                </h3>
+
+                <p>
+                    Get 10% off on your first order
+                </p>
+
+            </div>
+
+
+            <div class="offer-divider">
+            </div>
+
+
+            <div class="offer-right">
+
+                <span class="coupon-label">
+                    USE COUPON
+                </span>
+
+                <div class="coupon-box">
+
+                    <span class="coupon-code">
+                        SWAAD10
+                    </span>
+
+                    <button
+                        type="button"
+                        class="copy-btn"
+                        (click)="copyCoupon('SWAAD10')">
+
+                        @if(copiedCoupon === 'SWAAD10') {
+                            ✓ Copied
+                        }
+                        @else {
+                            📋 Copy
+                        }
+
+                    </button>
+
+                </div>
+
+
+                <span class="offer-condition">
+                    On orders above ₹499
+                </span>
+
+
+                <button
+                    type="button"
+                    class="shop-offer-btn"
+                    (click)="goToProducts()">
+
+                    Shop Now →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             OFFER 2
+        ================================================= -->
+
+        <div class="offer-card">
+
+            <div class="offer-left">
+
+                <span class="offer-icon">
+                    🛒
+                </span>
+
+                <span class="offer-label">
+                    SPECIAL SAVINGS
+                </span>
+
+                <h3>
+                    ₹100 OFF
+                </h3>
+
+                <p>
+                    Save ₹100 on your order
+                </p>
+
+            </div>
+
+
+            <div class="offer-divider">
+            </div>
+
+
+            <div class="offer-right">
+
+                <span class="coupon-label">
+                    USE COUPON
+                </span>
+
+                <div class="coupon-box">
+
+                    <span class="coupon-code">
+                        SWAAD100
+                    </span>
+
+                    <button
+                        type="button"
+                        class="copy-btn"
+                        (click)="copyCoupon('SWAAD100')">
+
+                        @if(copiedCoupon === 'SWAAD100') {
+                            ✓ Copied
+                        }
+                        @else {
+                            📋 Copy
+                        }
+
+                    </button>
+
+                </div>
+
+
+                <span class="offer-condition">
+                    On orders above ₹999
+                </span>
+
+
+                <button
+                    type="button"
+                    class="shop-offer-btn"
+                    (click)="goToProducts()">
+
+                    Shop Now →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

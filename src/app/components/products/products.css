@@ -1,0 +1,1332 @@
+/* =====================================================
+   PRODUCTS PAGE
+===================================================== */
+
+.products-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background: #fffdf7;
+
+    margin: 0;
+
+    padding: 0 0 70px;
+
+}
+
+
+/* =====================================================
+   PAGE HEADING
+===================================================== */
+
+.products-heading {
+
+    text-align: center;
+
+    padding: 35px 20px 30px;
+
+    background: #fffdf7;
+
+}
+
+
+.products-heading h1 {
+
+    margin: 0;
+
+    color: #9b321f;
+
+    font-size: 38px;
+
+    font-weight: 800;
+
+}
+
+
+.products-heading p {
+
+    margin: 8px 0 0;
+
+    color: #76533f;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   CATEGORY SECTION
+===================================================== */
+
+.category-section {
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0 0 55px;
+
+}
+
+
+/* =====================================================
+   FULL WIDTH CATEGORY BAR
+===================================================== */
+
+.category-title {
+
+    width: 100%;
+
+    min-height: 70px;
+
+    background: #3b170d;
+
+    color: #f4c430;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    margin: 0 0 30px;
+
+    padding: 15px 20px;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.4px;
+
+}
+
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.product-grid {
+
+    width: 100%;
+
+    padding: 0 45px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 30px;
+
+    align-items: stretch;
+
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.product-card {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #fffdf8;
+
+    border: 1px solid #ead9c5;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(73, 35, 18, 0.10);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+.product-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 18px 38px rgba(73, 35, 18, 0.20);
+
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.product-image-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 245px;
+
+    overflow: hidden;
+
+    background: #f5eadc;
+
+}
+
+
+.product-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+
+}
+
+
+.product-card:hover .product-image {
+
+    transform: scale(1.08);
+
+}
+
+
+/* =====================================================
+   WISHLIST
+===================================================== */
+
+.wishlist-btn {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    color: #8f2f1e;
+
+    font-size: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.16);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.wishlist-btn:hover {
+
+    background: #c73520;
+
+    color: white;
+
+    transform: scale(1.1);
+
+}
+
+
+/* =====================================================
+   IMAGE CATEGORY LABEL
+===================================================== */
+
+.image-category {
+
+    position: absolute;
+
+    left: 15px;
+
+    bottom: 15px;
+
+    background: rgba(59, 23, 13, 0.90);
+
+    color: #f4c430;
+
+    padding: 6px 13px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   PRODUCT INFORMATION
+===================================================== */
+
+.product-info {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 20px;
+
+}
+
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
+
+.product-name {
+
+    margin: 0 0 8px;
+
+    color: #4b1f0f;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    line-height: 1.25;
+
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.product-description {
+
+    color: #6b5a4e;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    margin: 0 0 16px;
+
+    display: -webkit-box;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   PRICE + STOCK
+===================================================== */
+
+.price-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: auto;
+
+    margin-bottom: 14px;
+
+}
+
+
+.product-price {
+
+    color: #c73520;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+}
+
+
+.stock-status {
+
+    color: #438a45;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+.add-cart-btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #b52b20;
+
+    color: white;
+
+    padding: 13px 20px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.add-cart-btn:hover {
+
+    background: #8f2119;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(143, 33, 25, 0.25);
+
+}
+
+
+/* =====================================================
+   QUANTITY BOX
+===================================================== */
+
+.quantity-box {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    padding: 2px;
+
+}
+
+
+/* =====================================================
+   QUANTITY BUTTON
+===================================================== */
+
+.qty-btn {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    color: white;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.qty-btn:hover {
+
+    transform: scale(1.12);
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.18);
+
+}
+
+
+.minus-btn {
+
+    background: #a52a2a;
+
+}
+
+
+.plus-btn {
+
+    background: #d97706;
+
+}
+
+
+/* =====================================================
+   QUANTITY NUMBER
+===================================================== */
+
+.qty-number {
+
+    min-width: 35px;
+
+    text-align: center;
+
+    color: #4b1f0f;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading-section {
+
+    min-height: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #76533f;
+
+}
+
+
+.loading-section p {
+
+    margin-top: 15px;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.custom-toast {
+
+    position: fixed;
+
+    top: 100px;
+
+    right: 25px;
+
+    z-index: 9999;
+
+    background: #3b170d;
+
+    color: #f4c430;
+
+    padding: 14px 22px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+
+    animation: slideIn 0.35s ease;
+
+}
+
+.no-products {
+    max-width: 600px;
+    margin: 70px auto;
+    padding: 50px 30px;
+    text-align: center;
+    background: #fff8e8;
+    border: 1px solid #e8c98a;
+    border-radius: 16px;
+}
+
+.no-products-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.no-products h2 {
+    color: #6b3518;
+    margin-bottom: 12px;
+}
+
+.no-products p {
+    color: #777;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.shop-all-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #a52a2a;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.shop-all-btn:hover {
+    background: #7d1f1f;
+}
+
+
+/* =====================================================
+   TOAST ANIMATION
+===================================================== */
+
+@keyframes slideIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(60px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .product-grid {
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        padding: 0 30px;
+
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .product-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        padding: 0 25px;
+
+        gap: 22px;
+
+    }
+
+    .category-title {
+
+        font-size: 21px;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .products-heading h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .product-grid {
+
+        grid-template-columns: 1fr;
+
+        padding: 0 18px;
+
+    }
+
+
+    .category-title {
+
+        min-height: 60px;
+
+        font-size: 20px;
+
+    }
+
+
+    .product-image-wrapper {
+
+        height: 230px;
+
+    }
+
+}
+
+/* =====================================================
+   PRODUCT QUANTITY MODAL
+===================================================== */
+
+.product-modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    background:
+        rgba(40, 18, 10, 0.72);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    animation:
+        modalFadeIn 0.25s ease;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.product-quantity-modal {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 470px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #fffdf8;
+
+    border-radius: 26px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.30);
+
+    animation:
+        modalSlideUp 0.3s ease;
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.product-modal-close {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 17px;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f6e9dc;
+
+    color: #5b2413;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.product-modal-close:hover {
+
+    background: #c73520;
+
+    color: white;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.modal-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.modal-logo {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #3b170d;
+
+    color: #f4c430;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    border: 3px solid #f4c430;
+
+    box-shadow:
+        0 5px 15px rgba(59, 23, 13, 0.20);
+
+}
+
+.modal-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+.modal-brand-name {
+
+    color: #3b170d;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.modal-product-image-wrapper {
+
+    width: 100%;
+
+    height: 220px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    background: #f5eadc;
+
+    margin-bottom: 20px;
+
+}
+
+
+.modal-product-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
+
+.modal-product-name {
+
+    margin: 0;
+
+    text-align: center;
+
+    color: #4b1f0f;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================================
+   PRICE PER KG
+===================================================== */
+
+.modal-price-per-kg {
+
+    margin-top: 8px;
+
+    text-align: center;
+
+    color: #c73520;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+}
+
+
+.modal-price-per-kg span {
+
+    color: #76533f;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   QUANTITY
+===================================================== */
+
+.modal-quantity-section {
+
+    margin-top: 25px;
+
+}
+
+
+.modal-quantity-section label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #4b1f0f;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+.modal-quantity-row {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.modal-quantity-input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid #d9c2a9;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #4b1f0f;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+
+.modal-quantity-input:focus {
+
+    border-color: #b52b20;
+
+    box-shadow:
+        0 0 0 3px rgba(181, 43, 32, 0.10);
+
+}
+
+
+.modal-unit-select {
+
+    width: 135px;
+
+    height: 50px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d9c2a9;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #4b1f0f;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+.modal-unit-select:focus {
+
+    border-color: #b52b20;
+
+}
+
+
+/* =====================================================
+   CALCULATED PRICE
+===================================================== */
+
+.modal-calculated-price {
+
+    margin-top: 22px;
+
+    padding: 17px 18px;
+
+    background: #fff4df;
+
+    border: 1px solid #ead1a5;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.modal-calculated-price span {
+
+    color: #76533f;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.modal-calculated-price strong {
+
+    color: #a52a2a;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.modal-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+
+.modal-cancel-btn,
+.modal-add-btn {
+
+    flex: 1;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 28px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.modal-cancel-btn {
+
+    background: #eadfd4;
+
+    color: #5b2413;
+
+}
+
+
+.modal-cancel-btn:hover {
+
+    background: #dbcabd;
+
+    transform: translateY(-2px);
+
+}
+
+
+.modal-add-btn {
+
+    background: #b52b20;
+
+    color: white;
+
+}
+
+
+.modal-add-btn:hover:not(:disabled) {
+
+    background: #8f2119;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(143, 33, 25, 0.25);
+
+}
+
+
+.modal-add-btn:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =====================================================
+   MODAL ANIMATION
+===================================================== */
+
+@keyframes modalFadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes modalSlideUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px)
+                   scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0)
+                   scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   MODAL RESPONSIVE
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .product-quantity-modal {
+
+        max-width: 100%;
+
+        padding: 22px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .modal-product-image-wrapper {
+
+        height: 190px;
+
+    }
+
+
+    .modal-product-name {
+
+        font-size: 22px;
+
+    }
+
+
+    .modal-quantity-row {
+
+        flex-direction: column;
+
+    }
+
+
+    .modal-unit-select {
+
+        width: 100%;
+
+    }
+
+
+    .modal-actions {
+
+        flex-direction: column;
+
+    }
+
+}

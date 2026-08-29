@@ -1,0 +1,1581 @@
+/* =====================================================
+   TOP ANNOUNCEMENT BAR
+===================================================== */
+
+.announcement-bar {
+
+    width: 100%;
+
+    height: 42px;
+
+    background: #7b2d26;
+
+    color: #fff8ef;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2000;
+
+    box-sizing: border-box;
+
+    border-bottom: 2px solid #d4a373;
+
+    overflow: hidden;
+}
+
+
+.announcement-content {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =====================================================
+   EACH MESSAGE
+===================================================== */
+
+.announcement-content span {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.2px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    animation: announcementMessage 15s linear infinite;
+
+}
+
+
+/* =====================================================
+   MESSAGE 1
+===================================================== */
+
+.announcement-content span:nth-child(1) {
+
+    animation-delay: 0s;
+
+}
+
+
+/* =====================================================
+   MESSAGE 2
+===================================================== */
+
+.announcement-content span:nth-child(2) {
+
+    animation-delay: 5s;
+
+}
+
+
+/* =====================================================
+   MESSAGE 3
+===================================================== */
+
+.announcement-content span:nth-child(3) {
+
+    animation-delay: 10s;
+
+}
+
+
+/* =====================================================
+   ANNOUNCEMENT ANIMATION
+===================================================== */
+
+@keyframes announcementMessage {
+
+    0% {
+
+        opacity: 0;
+
+        visibility: hidden;
+
+    }
+
+    2% {
+
+        opacity: 1;
+
+        visibility: visible;
+
+    }
+
+    30% {
+
+        opacity: 1;
+
+        visibility: visible;
+
+    }
+
+    32% {
+
+        opacity: 0;
+
+        visibility: hidden;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        visibility: hidden;
+
+    }
+
+}
+
+
+/* =====================================================
+   ANNOUNCEMENT STRONG TEXT
+===================================================== */
+
+.announcement-content strong {
+
+    font-weight: 600;
+
+    color: #fff8ef;
+
+}
+
+
+/* =====================================================
+   MOVING WELCOME MESSAGE
+===================================================== */
+
+.welcome-marquee {
+
+    width: 100%;
+
+    height: 30px;
+
+    background: #fff8ef;
+
+    border-bottom: 1px solid #d4a373;
+
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   MOVING TEXT
+===================================================== */
+
+.welcome-marquee-text {
+
+    position: absolute;
+
+    left: 100%;
+
+    white-space: nowrap;
+
+    color: #7b2d26;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    animation: welcomeMarquee 12s linear infinite;
+
+}
+
+
+/* =====================================================
+   RIGHT TO LEFT ANIMATION
+===================================================== */
+
+@keyframes welcomeMarquee {
+
+    0% {
+
+        transform: translateX(0);
+
+    }
+
+    100% {
+
+        transform: translateX(-120vw);
+
+    }
+
+}
+
+
+/* =====================================================
+   SEARCH BAR
+===================================================== */
+
+.search-container {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 42%;
+
+    max-width: 600px;
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    background: #f8f1e7;
+
+    border: 1px solid #e3d2bc;
+
+    border-radius: 25px;
+
+    padding: 0 8px 0 18px;
+
+    z-index: 10;
+
+}
+
+
+/* Search icon */
+
+.search-icon {
+
+    flex-shrink: 0;
+
+    font-size: 17px;
+
+    margin-right: 8px;
+
+}
+
+
+/* Search input */
+
+.search-input {
+
+    flex: 1;
+
+    width: auto;
+
+    height: 42px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #4b1f0f;
+
+    font-size: 14px;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* Placeholder */
+
+.search-input::placeholder {
+
+    color: #987d6a;
+
+    opacity: 1;
+
+}
+
+
+/* Search button */
+
+.search-button {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   GLOBAL NAVBAR
+===================================================== */
+
+:host {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   TOP NAVBAR
+===================================================== */
+
+.top-navbar {
+
+    width: 100%;
+
+    height: 80px;
+
+    position: relative;
+
+    background: #ffffff;
+
+}
+
+
+.navbar-logo,
+.search-container,
+.user-section {
+
+    height: 80px;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.navbar-logo {
+
+    width: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 35px;
+
+    background: #ffffff;
+
+}
+
+
+.navbar-logo a {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.navbar-logo img {
+
+    width: 65px;
+
+    height: 65px;
+
+    object-fit: contain;
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   SEARCH BAR
+===================================================== */
+
+.search-container {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 42%;
+
+    max-width: 600px;
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    background: #f8f1e7;
+
+    border: 1px solid #e3d2bc;
+
+    border-radius: 25px;
+
+    padding: 0 18px;
+
+    z-index: 10;
+
+}
+
+
+.search-icon {
+
+    font-size: 17px;
+
+    margin-right: 10px;
+
+}
+
+
+.search-input::placeholder {
+
+    color: #987d6a;
+
+}
+
+
+/* =====================================================
+   USER SECTION
+===================================================== */
+
+.user-section {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    z-index: 20;
+
+}
+
+
+.welcome-text {
+
+    color: #4b1f0f;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.auth-link {
+
+    color: #8f2f1e;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+
+}
+
+
+.auth-link:hover {
+
+    color: #c73520;
+
+}
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+.register-btn {
+
+    background: #a52a2a;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 9px 20px;
+
+    border-radius: 22px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+
+}
+
+
+.register-btn:hover {
+
+    background: #8b1e1e;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+.logout-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: #a52a2a;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.logout-btn:hover {
+
+    color: #7f1d1d;
+
+}
+
+
+/* =====================================================
+   SECOND NAVIGATION
+===================================================== */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+.nav-links {
+
+    width: 100vw;
+
+    min-width: 100vw;
+
+    height: 52px;
+
+    background: #4b1f0f;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+
+    padding: 0 25px;
+
+    margin: 0;
+
+    position: relative;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   NAVIGATION ITEMS
+===================================================== */
+
+.nav-item {
+
+    height: 52px;
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 10px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: all 0.25s ease;
+
+}
+
+
+.nav-item:hover {
+
+    background: #6b2d18;
+
+    color: #f4c430;
+
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+.cart-link {
+
+    position: relative;
+
+    min-width: 75px;
+
+    flex-shrink: 0;
+
+}
+
+
+.cart-link:hover {
+
+    background: #6b2d18;
+
+    color: #f4c430;
+
+}
+
+
+.cart-icon {
+
+    font-size: 20px;
+
+}
+
+
+.cart-text {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   CART BADGE
+===================================================== */
+
+.cart-badge {
+
+    position: absolute;
+
+    top: 6px;
+
+    right: 3px;
+
+    min-width: 18px;
+
+    height: 18px;
+
+    padding: 0 5px;
+
+    border-radius: 50%;
+
+    background: #f4c430;
+
+    color: #4b1f0f;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================================
+   CATEGORY DIALOG OVERLAY
+===================================================== */
+
+.category-overlay {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    padding-top: 145px;
+
+    z-index: 5000;
+
+}
+
+
+/* =====================================================
+   CATEGORY DIALOG
+===================================================== */
+
+.category-dialog {
+
+    width: 850px;
+
+    max-width: 90%;
+
+    background: #fffdf8;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    position: relative;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    animation: dialogOpen 0.25s ease;
+
+}
+
+
+@keyframes dialogOpen {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-20px) scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close-btn {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #a52a2a;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+}
+
+
+.close-btn:hover {
+
+    background: #7f1d1d;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =====================================================
+   CATEGORY DIALOG TITLE
+===================================================== */
+
+.category-dialog h2 {
+
+    margin: 0;
+
+    text-align: center;
+
+    color: #8f2f1e;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+}
+
+
+.category-dialog > p {
+
+    text-align: center;
+
+    color: #76533f;
+
+    margin: 8px 0 25px;
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   CATEGORY GRID
+===================================================== */
+
+.category-dialog-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 18px;
+
+}
+
+
+/* =====================================================
+   CATEGORY CARD
+===================================================== */
+
+.dialog-category {
+
+    text-align: center;
+
+    cursor: pointer;
+
+    border-radius: 15px;
+
+    padding: 10px;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.dialog-category:hover {
+
+    transform: translateY(-7px);
+
+    background: #f8f1e7;
+
+}
+
+
+/* =====================================================
+   CATEGORY IMAGE
+===================================================== */
+
+.dialog-category img {
+
+    width: 100%;
+
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   CATEGORY NAME
+===================================================== */
+
+.dialog-category h3 {
+
+    margin: 10px 0 0;
+
+    color: #4b1f0f;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar-logo {
+
+        padding-left: 20px;
+
+    }
+
+
+    .search-container {
+
+        width: 38%;
+
+    }
+
+
+    .nav-links {
+
+        width: 100vw;
+
+        height: 52px;
+
+        background: #4b1f0f;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 4px;
+
+        padding: 0 30px;
+
+        margin: 0;
+
+        position: relative;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        overflow: hidden;
+
+    }
+
+
+    .nav-item {
+
+        height: 52px;
+
+        display: flex;
+
+        align-items: center;
+
+        padding: 0 17px;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        font-weight: 500;
+
+        white-space: nowrap;
+
+        transition: all 0.25s ease;
+
+    }
+
+
+    .cart-link {
+
+        right: 15px;
+
+    }
+
+
+    .category-dialog-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar-logo {
+
+        width: 120px;
+
+        padding-left: 15px;
+
+    }
+
+
+    .navbar-logo img {
+
+        width: 55px;
+
+        height: 55px;
+
+    }
+
+
+    .search-container {
+
+        width: 38%;
+
+        min-width: 180px;
+
+    }
+
+
+    .user-section {
+
+        right: 15px;
+
+        gap: 8px;
+
+    }
+
+
+    .welcome-text {
+
+        display: none;
+
+    }
+
+
+    .nav-links {
+
+        overflow-x: auto;
+
+        padding-left: 5px;
+
+        padding-right: 90px;
+
+    }
+
+
+    .nav-item {
+
+        padding: 0 10px;
+
+        font-size: 12px;
+
+    }
+
+
+    .cart-link {
+
+        right: 8px;
+
+    }
+
+
+    .cart-text {
+
+        display: none;
+
+    }
+
+
+    .category-dialog-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .announcement-bar {
+
+        height: 38px;
+
+    }
+
+
+    .announcement-content {
+
+        font-size: 12px;
+
+    }
+
+
+    .announcement-content span {
+
+        gap: 4px;
+
+    }
+
+
+    .navbar-logo img {
+
+        width: 48px;
+
+        height: 48px;
+
+    }
+
+
+    .search-container {
+
+        left: 45%;
+
+        width: 37%;
+
+        height: 36px;
+
+        padding: 0 10px;
+
+    }
+
+
+    .search-input {
+
+        font-size: 10px;
+
+    }
+
+
+    .search-icon {
+
+        font-size: 12px;
+
+        margin-right: 5px;
+
+    }
+
+
+    .auth-link {
+
+        font-size: 12px;
+
+    }
+
+
+    .register-btn {
+
+        padding: 7px 10px;
+
+        font-size: 11px;
+
+    }
+
+
+    .nav-item {
+
+        padding: 0 8px;
+
+        font-size: 11px;
+
+    }
+
+
+    .category-dialog {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .category-dialog-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+
+    }
+
+
+    .dialog-category img {
+
+        height: 100px;
+
+    }
+
+}
+
+
+/* =====================================================
+   CART WRAPPER
+   Only for empty-cart popup
+===================================================== */
+
+.cart-wrapper {
+
+    position: relative;
+
+    display: inline-block;
+
+}
+
+
+/* =====================================================
+   EMPTY CART POPUP
+===================================================== */
+
+.empty-cart-popup {
+
+    /*
+       Fixed positioning prevents the popup
+       from being clipped by .nav-links
+       overflow rules.
+    */
+
+    position: fixed;
+
+    top: 50px;
+
+    right: 60px;
+
+    width: 290px;
+
+    padding: 18px 20px;
+
+    background: #fffdf8;
+
+    border: 1px solid #d4a373;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(75, 31, 15, 0.22);
+
+    z-index: 999999;
+
+    box-sizing: border-box;
+
+    animation: emptyCartPopupIn 0.35s ease;
+
+}
+
+
+/* =====================================================
+   POPUP ARROW
+===================================================== */
+
+.empty-cart-popup::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -8px;
+
+    right: 28px;
+
+    width: 15px;
+
+    height: 15px;
+
+    background: #fffdf8;
+
+    border-left: 1px solid #d4a373;
+
+    border-top: 1px solid #d4a373;
+
+    transform: rotate(45deg);
+
+}
+
+
+/* =====================================================
+   POPUP TITLE
+===================================================== */
+
+.empty-cart-popup-title {
+
+    position: relative;
+
+    margin-bottom: 7px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #7b2d26;
+
+    line-height: 1.3;
+
+}
+
+
+/* =====================================================
+   POPUP MESSAGE
+===================================================== */
+
+.empty-cart-popup-text {
+
+    position: relative;
+
+    margin-bottom: 14px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    color: #76533f;
+
+}
+
+
+/* =====================================================
+   SHOP NOW BUTTON
+===================================================== */
+
+.empty-cart-shop-btn {
+
+    position: relative;
+
+    display: inline-block;
+
+    padding: 8px 17px;
+
+    border-radius: 20px;
+
+    background: #7b2d26;
+
+    color: #fff8ef;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.empty-cart-shop-btn:hover {
+
+    background: #6b241f;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+   POPUP ANIMATION
+===================================================== */
+
+@keyframes emptyCartPopupIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   POPUP RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .empty-cart-popup {
+
+        width: 270px;
+
+        top: 140px;
+
+        right: 15px;
+
+    }
+
+
+    .empty-cart-popup::before {
+
+        right: 28px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .empty-cart-popup {
+
+        width: 250px;
+
+        top: 125px;
+
+        right: 10px;
+
+        padding: 15px 16px;
+
+    }
+
+
+    .empty-cart-popup-title {
+
+        font-size: 15px;
+
+    }
+
+
+    .empty-cart-popup-text {
+
+        font-size: 12px;
+
+    }
+
+}

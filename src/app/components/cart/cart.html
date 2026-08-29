@@ -1,0 +1,237 @@
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">
+        Shopping Cart
+    </h2>
+
+
+    @if ((cart$ | async); as cartItems) {
+
+        @if (cartItems.length === 0) {
+
+            <div class="alert alert-info text-center">
+
+                <h4>
+                    🛒 Your cart is empty
+                </h4>
+
+                <p>
+                    Start shopping delicious healthy products.
+                </p>
+
+                <a
+                    routerLink="/products"
+                    class="btn btn-warning">
+
+                    Shop Now
+
+                </a>
+
+            </div>
+
+        }
+
+        @else {
+
+            <div class="table-responsive">
+
+                <table
+                    class="table table-bordered align-middle">
+
+                    <thead class="table-success">
+
+                        <tr>
+
+                            <th>
+                                Image
+                            </th>
+
+                            <th>
+                                Product
+                            </th>
+
+                            <th>
+                                Price / Kg
+                            </th>
+
+                            <th width="180">
+                                Quantity
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        @for (
+                            item of cartItems;
+                            track item.product.productId
+                        ) {
+
+                            <tr>
+
+                                <!-- IMAGE -->
+
+                                <td>
+
+                                    <img
+                                        [src]="item.product.imageUrl"
+                                        [alt]="item.product.productName"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 10px;">
+
+                                </td>
+
+
+                                <!-- PRODUCT -->
+
+                                <td>
+
+                                    <strong>
+                                        {{ item.product.productName }}
+                                    </strong>
+
+                                </td>
+
+
+                                <!-- PRICE PER KG -->
+
+                                <td>
+
+                                    ₹{{
+                                        item.product.price
+                                        | number:'1.2-2'
+                                    }}
+
+                                    / Kg
+
+                                </td>
+
+
+                                <!-- QUANTITY -->
+
+                                <td>
+
+                                    <button
+                                        class="btn btn-danger btn-sm"
+                                        (click)="decrease(item.product.productId)">
+
+                                        −
+
+                                    </button>
+
+
+                                    <span class="mx-3 fw-bold">
+
+                                        {{ item.quantity }}
+                                        {{ item.unit }}
+
+                                    </span>
+
+
+                                    <button
+                                        class="btn btn-success btn-sm"
+                                        (click)="increase(item.product.productId)">
+
+                                        +
+
+                                    </button>
+
+                                </td>
+
+
+                                <!-- TOTAL -->
+
+                                <td>
+
+                                    <strong>
+
+                                        ₹{{
+                                            item.totalAmount
+                                            | number:'1.2-2'
+                                        }}
+
+                                    </strong>
+
+                                </td>
+
+
+                                <!-- REMOVE -->
+
+                                <td>
+
+                                    <button
+                                        class="btn btn-outline-danger btn-sm"
+                                        (click)="remove(item.product.productId)">
+
+                                        Remove
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- =================================================
+                 GRAND TOTAL
+            ================================================= -->
+
+            <div
+                class="card p-4 mt-4 shadow border-0">
+
+                <div
+                    class="d-flex justify-content-between align-items-center">
+
+                    <h3>
+                        Grand Total
+                    </h3>
+
+
+                    <h2 class="text-success">
+
+                        ₹{{
+                            getTotal()
+                            | number:'1.2-2'
+                        }}
+
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    (click)="proceedToCheckout()">
+
+                    Proceed to Checkout →
+
+                </button>
+
+            </div>
+
+        }
+
+    }
+
+</div>

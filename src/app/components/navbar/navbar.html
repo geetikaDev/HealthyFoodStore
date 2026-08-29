@@ -1,0 +1,408 @@
+<!-- =====================================================
+     ANNOUNCEMENT BAR
+===================================================== -->
+
+<div class="announcement-bar">
+
+    <div class="announcement-content">
+
+        <span>
+            💵 <strong>Pay On Delivery Available</strong>
+        </span>
+        @if(!isLoggedIn){
+
+            <span>
+            👋 <strong>Hello, Please login for better experience. </strong>
+            <a routerLink ="/login" style="color: white;">Login</a>
+        </span>
+        }
+        
+        <span>
+            ❤️ <strong>Homemade Taste, Delivered With Love</strong>
+        </span>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     MOVING WELCOME MESSAGE
+===================================================== -->
+
+<div class="welcome-marquee">
+
+    <div class="welcome-marquee-text">
+
+        ❤️ Welcome to Swaad Junction — Homemade Taste, Delivered With Love ❤️
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOP NAVBAR
+===================================================== -->
+
+<header class="top-navbar">
+
+    <!-- LEFT : LOGO -->
+
+    <div class="navbar-logo">
+
+        <a routerLink="/home">
+
+            <img
+                src="/images/logo.png"
+                alt="Swaad Junction">
+
+        </a>
+
+    </div>
+
+
+    <!-- CENTER : SEARCH -->
+
+    <div class="search-container">
+
+        <span class="search-icon">
+            🔍
+        </span>
+
+        <input
+            type="text"
+            class="search-input"
+            [(ngModel)]="searchText"
+            [placeholder]="searchPlaceholder"
+            (keyup.enter)="searchProduct()">
+
+        <button
+            type="button"
+            class="search-button"
+            (click)="searchProduct()">
+
+            🔍
+
+        </button>
+
+    </div>
+
+
+    <!-- RIGHT : USER -->
+
+    <div class="user-section">
+
+        @if(isLoggedIn) {
+
+            <span class="welcome-text">
+                Welcome, {{ firstName }}
+            </span>
+
+            <button
+                class="logout-btn"
+                (click)="logout()">
+
+                Logout
+
+            </button>
+
+        }
+
+        @else {
+
+            <a
+                routerLink="/login"
+                class="auth-link">
+
+                Login
+
+            </a>
+
+            <a
+                routerLink="/register"
+                class="register-btn">
+
+                Register
+
+            </a>
+
+        }
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     CATEGORY NAVBAR
+===================================================== -->
+
+<nav class="category-navbar">
+
+    <div class="nav-links">
+
+        <!-- HOME -->
+
+        <a
+            routerLink="/home"
+            class="nav-item">
+
+            Home
+
+        </a>
+
+
+        <!-- PRODUCTS -->
+
+        <a
+            routerLink="/products"
+            class="nav-item">
+
+            Products
+
+        </a>
+
+
+        <!-- MOST SELLING -->
+
+        <a
+            routerLink="/products"
+            class="nav-item">
+
+            Most Selling Products
+
+        </a>
+
+
+        <!-- PRODUCT CATEGORY -->
+
+        <a
+            class="nav-item category-nav"
+            (mouseenter)="openCategoryDialog()"
+            (mouseleave)="startCategoryClose()">
+
+            Product Category
+
+        </a>
+
+
+        <!-- FESTIVE FOODS -->
+
+        <a
+            routerLink="/products"
+            [queryParams]="{ category: 'Festive Foods' }"
+            class="nav-item">
+
+            Festive Foods
+
+        </a>
+
+
+        <!-- WISHLIST -->
+
+        <a
+            routerLink="/wishlist"
+            class="nav-item">
+
+            <span>
+                Wishlist
+            </span>
+
+        </a>
+
+
+        <!-- MY ORDERS -->
+
+        @if(isLoggedIn) {
+
+            <a
+                routerLink="/my-orders"
+                class="nav-item">
+
+                <span class="action-icon">
+                    📦
+                </span>
+
+                <span>
+                    My Orders
+                </span>
+
+            </a>
+
+        }
+
+
+        <!-- CART -->
+
+        <a
+            routerLink="/cart"
+            class="nav-item cart-link">
+
+            <span class="action-icon">
+                🛒
+            </span>
+
+            <span>
+                Cart
+            </span>
+
+            @if(cartCount > 0) {
+
+                <span class="cart-badge">
+                    {{ cartCount }}
+                </span>
+
+            }
+
+        </a>
+
+        <!-- Empty cart message-->
+         @if(isLoggedIn && cartCount === 0 && showEmptyCartPopup){
+            <div class="empty-cart-popup">
+
+            <div class="empty-cart-popup-title">
+                🛒 Your Cart is Empty!
+            </div>
+
+            <div class="empty-cart-popup-text">
+                Explore our delicious homemade snacks <br>
+                and add your favourites. ❤️
+            </div>
+
+            <a
+                routerLink="/products"
+                class="empty-cart-shop-btn">
+
+                Shop Now →
+
+            </a>
+
+        </div>
+         }
+
+    </div>
+
+
+    <!-- =====================================================
+         CATEGORY DIALOG
+    ===================================================== -->
+
+    <div
+        class="category-overlay"
+        *ngIf="categoryDialogOpen">
+
+        <div
+            class="category-dialog"
+            (mouseenter)="openCategoryDialog()"
+            (mouseleave)="closeCategoryDialog()">
+
+            <button
+                class="close-btn"
+                (click)="closeCategoryDialog()">
+
+                X
+
+            </button>
+
+            <h2>
+                Explore Our Categories
+            </h2>
+
+            <p>
+                Discover delicious homemade favorites
+            </p>
+
+
+            <div class="category-dialog-grid">
+
+                <!-- SNACKS -->
+
+                <div
+                    class="dialog-category"
+                    (click)="goToCategory('Snacks')">
+
+                    <img
+                        src="/images/SnackCategory.png"
+                        alt="Snacks">
+
+                    <h3>
+                        Snacks
+                    </h3>
+
+                </div>
+
+
+                <!-- DRINKS -->
+
+                <div
+                    class="dialog-category"
+                    (click)="goToCategory('Drinks')">
+
+                    <img
+                        src="/images/DrinkCategory.png"
+                        alt="Drinks">
+
+                    <h3>
+                        Drinks
+                    </h3>
+
+                </div>
+
+
+                <!-- WAFERS -->
+
+                <div
+                    class="dialog-category"
+                    (click)="goToCategory('Wafers')">
+
+                    <img
+                        src="/images/WafersCategory.png"
+                        alt="Wafers">
+
+                    <h3>
+                        Wafers
+                    </h3>
+
+                </div>
+
+
+                <!-- DAILY SPECIALS -->
+
+                <div
+                    class="dialog-category"
+                    (click)="goToCategory('Daily Specials')">
+
+                    <img
+                        src="/images/DailySpecialsCategory.png"
+                        alt="Daily Specials">
+
+                    <h3>
+                        Daily Specials
+                    </h3>
+
+                </div>
+
+
+                <!-- FESTIVE FOODS -->
+
+                <div
+                    class="dialog-category"
+                    (click)="goToCategory('Festive Foods')">
+
+                    <img
+                        src="/images/FestiveFood.png"
+                        alt="Festive Foods">
+
+                    <h3>
+                        Festive Foods
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>

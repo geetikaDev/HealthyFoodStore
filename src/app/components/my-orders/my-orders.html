@@ -1,0 +1,473 @@
+<div class="orders-container">
+
+    <div class="orders-header">
+
+        <h1>
+            My Orders
+        </h1>
+
+        <p>
+            View your previous orders and purchases
+        </p>
+
+    </div>
+
+
+    @if (loading) {
+
+        <div class="loading-box">
+
+            <div class="spinner-border text-success"></div>
+
+            <p>
+                Loading your orders...
+            </p>
+
+        </div>
+
+    }
+
+
+    @else if (errorMessage) {
+
+        <div class="alert alert-danger text-center">
+
+            {{ errorMessage }}
+
+        </div>
+
+    }
+
+
+    @else if (!hasOrders) {
+
+        <div class="empty-orders">
+
+            <div class="empty-icon">
+                📦
+            </div>
+
+            <h2>
+                No Orders Yet
+            </h2>
+
+            <p>
+                You haven't placed any orders yet.
+            </p>
+
+            <a
+                routerLink="/products"
+                class="shop-btn">
+
+                Start Shopping
+
+            </a>
+
+        </div>
+
+    }
+
+
+    @else {
+
+        <div class="orders-list">
+
+            @for (order of orders; track order.orderId) {
+
+                <!-- ORDER CARD -->
+
+                <div
+                    class="order-card"
+                    (click)="openOrder(order)">
+
+                    <div class="order-top">
+
+                        <div>
+
+                            <span class="order-label">
+                                Order ID
+                            </span>
+
+                            <h3>
+                                #{{ order.orderId }}
+                            </h3>
+
+                        </div>
+
+
+                        <div class="order-amount">
+
+                            ₹{{ order.totalAmount }}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="order-divider"></div>
+
+
+                    <div class="order-details">
+
+                        <div class="detail-item">
+
+                            <span class="detail-icon">
+                                👤
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Customer
+                                </small>
+
+                                <strong>
+                                    {{ order.customerName }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span class="detail-icon">
+                                📧
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Email
+                                </small>
+
+                                <strong>
+                                    {{ order.email }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span class="detail-icon">
+                                📞
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Phone
+                                </small>
+
+                                <strong>
+                                    {{ order.phone }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span class="detail-icon">
+                                📍
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Delivery Address
+                                </small>
+
+                                <strong>
+                                    {{ order.address }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span class="detail-icon">
+                                📅
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Order Date
+                                </small>
+
+                                <strong>
+                                    {{ order.orderDate | date:'dd MMM yyyy, hh:mm a' }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- VIEW ORDER -->
+
+                    <div class="view-order">
+
+                        <span>
+                            Tap to view order details
+                        </span>
+
+                        <span class="view-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+
+    }
+
+</div>
+
+
+<!-- =====================================================
+     ORDER DETAILS POPUP
+===================================================== -->
+
+@if (selectedOrder) {
+
+    <div
+        class="order-modal-backdrop"
+        (click)="closeOrder()">
+
+        <div
+            class="order-modal"
+            (click)="$event.stopPropagation()">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="modal-label">
+                        Order Details
+                    </span>
+
+                    <h2>
+                        #{{ selectedOrder.orderId }}
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    (click)="closeOrder()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <!-- ORDER DATE -->
+
+            <div class="order-time">
+
+                <span>
+                    📅
+                </span>
+
+                <div>
+
+                    <small>
+                        Ordered On
+                    </small>
+
+                    <strong>
+                        {{ selectedOrder.orderDate | date:'dd MMM yyyy, hh:mm a' }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOMER INFORMATION -->
+
+            <div class="modal-section">
+
+                <h3>
+                    Customer Information
+                </h3>
+
+
+                <div class="customer-grid">
+
+                    <div>
+
+                        <small>
+                            Name
+                        </small>
+
+                        <strong>
+                            {{ selectedOrder.customerName }}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            Email
+                        </small>
+
+                        <strong>
+                            {{ selectedOrder.email }}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            Phone
+                        </small>
+
+                        <strong>
+                            {{ selectedOrder.phone }}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            Delivery Address
+                        </small>
+
+                        <strong>
+                            {{ selectedOrder.address }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+
+            <div class="modal-section">
+
+                <h3>
+                    Products Purchased
+                </h3>
+
+
+                @if (selectedOrder.items && selectedOrder.items.length > 0) {
+
+                    <div class="products-list">
+
+                        @for (item of selectedOrder.items; track $index) {
+
+                            <div class="product-row">
+
+                                <div class="product-info">
+
+                                    <div class="product-icon">
+                                        🛍️
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            {{ item.productName }}
+                                        </strong>
+
+                                        <small>
+                                            ₹{{ item.price }} × {{ item.quantity }}
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="product-subtotal">
+
+                                    ₹{{ item.subtotal }}
+
+                                </div>
+
+                            </div>
+
+                        }
+
+                    </div>
+
+                }
+
+                @else {
+
+                    <div class="no-items">
+
+                        Product details are not available.
+
+                    </div>
+
+                }
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="modal-total">
+
+                <span>
+                    Total Amount
+                </span>
+
+                <strong>
+                    ₹{{ selectedOrder.totalAmount }}
+                </strong>
+
+            </div>
+
+
+            <!-- CLOSE -->
+
+            <button
+                type="button"
+                class="done-btn"
+                (click)="closeOrder()">
+
+                Done
+
+            </button>
+
+        </div>
+
+    </div>
+
+}

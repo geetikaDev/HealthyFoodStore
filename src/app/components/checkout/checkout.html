@@ -1,0 +1,150 @@
+<div class="container mt-5">
+
+    <!-- Page Heading -->
+
+    <h2 class="text-center page-title">
+        🧾 Checkout
+    </h2>
+
+    <p class="text-center subtitle">
+        Almost there! Confirm your details to place your order.
+    </p>
+
+    <div class="row g-4">
+
+        <!-- Customer Details -->
+
+        <div class="col-lg-7">
+
+            <div class="checkout-card">
+
+                <h4 class="mb-4">
+                    Customer Details
+                </h4>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="customerName">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        [(ngModel)]="email">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="phone">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        rows="5"
+                        class="form-control"
+                        [(ngModel)]="address">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Order Summary -->
+
+        <div class="col-lg-5">
+
+            <div class="checkout-card">
+
+                <h4 class="mb-4">
+                    Order Summary
+                </h4>
+
+                @for(item of cartItems; track item.product.productId){
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+
+                    <div>
+
+                        <strong>
+                            {{item.product.productName}}
+                        </strong>
+
+                        <br>
+
+                        <small class="text-muted">
+                            Qty : {{item.quantity}}
+                        </small>
+
+                    </div>
+
+                    <strong>
+                        ₹{{item.product.price * item.quantity}}
+                    </strong>
+
+                </div>
+
+                }
+
+                <hr>
+
+                <div class="order-summary">
+
+                    <div class="d-flex justify-content-between">
+
+                        <span>
+                            Grand Total
+                        </span>
+
+                        <span class="total">
+                            ₹{{getTotal()}}
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="btn-place-order mt-4"
+                    (click)="placeOrder()">
+
+                    🛒 Place Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

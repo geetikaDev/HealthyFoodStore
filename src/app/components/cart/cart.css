@@ -1,0 +1,91 @@
+/* Page */
+
+.container h2{
+    color:#6F4E37;
+    font-weight:700;
+}
+
+/* Table */
+
+.table{
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.table thead{
+    background:#F4A300;
+    color:white;
+}
+
+.table-success{
+    --bs-table-bg:#F4A300;
+    --bs-table-color:white;
+}
+
+/* Product Image */
+
+table img{
+    border-radius:10px;
+    border:2px solid #FFD166;
+}
+
+/* Quantity Buttons */
+
+.btn-success{
+    background:#8B4513;
+    border:none;
+}
+
+.btn-success:hover{
+    background:#6F4E37;
+}
+
+.btn-danger{
+    background:#C0392B;
+    border:none;
+}
+
+.btn-danger:hover{
+    background:#A93226;
+}
+
+/* Remove Button */
+
+.btn-outline-danger{
+    border:2px solid #C0392B;
+    color:#C0392B;
+}
+
+.btn-outline-danger:hover{
+    background:#C0392B;
+    color:white;
+}
+
+/* Grand Total */
+
+.text-success{
+    color:#8B4513 !important;
+}
+
+/* Checkout Button */
+
+.btn-lg{
+    background:#F4A300;
+    color:white;
+    border:none;
+    transition:.3s;
+}
+
+.btn-lg:hover{
+    background:#D98E04;
+    transform:translateY(-2px);
+}
+
+/* Empty Cart */
+
+.alert-info{
+    background:#FFF8E6;
+    color:#6F4E37;
+    border:1px solid #FFD166;
+}

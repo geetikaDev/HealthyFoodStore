@@ -1,0 +1,521 @@
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.home-footer {
+
+    width: 100%;
+
+    background: #2b1209;
+
+    color: white;
+
+    padding: 50px 40px 25px;
+
+}
+
+
+.footer-content {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   THREE FOOTER PARTS
+===================================================== */
+
+.footer-columns {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1.5fr 1fr;
+
+    gap: 50px;
+
+    align-items: start;
+
+}
+
+
+/* Individual Column */
+
+.footer-column {
+
+    min-width: 0;
+
+}
+
+
+/* =====================================================
+   PART 1 - STAY IN TOUCH
+===================================================== */
+
+.stay-column {
+
+    text-align: left;
+
+}
+
+
+.stay-column h4 {
+
+    margin: 0 0 15px;
+
+    color: #f4c430;
+
+    font-size: 22px;
+
+}
+
+
+.stay-column p {
+
+    margin: 0 0 20px;
+
+    color: #f3dfcc;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   PART 2 - BRAND
+===================================================== */
+
+.brand-column {
+
+    text-align: center;
+
+}
+
+
+.footer-content h3 {
+
+    margin: 0 0 8px;
+
+    color: #f4c430;
+
+    font-size: 28px;
+
+}
+
+
+.brand-tagline {
+
+    margin: 8px 0 !important;
+
+    color: #f3dfcc;
+
+}
+
+
+.brand-description {
+
+    margin: 8px 0 22px !important;
+
+    color: #f3dfcc;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+.newsletter-section {
+
+    width: 100%;
+
+    margin: 25px auto 0;
+
+}
+
+
+.newsletter-section h4 {
+
+    margin: 0 0 8px;
+
+    color: #f4c430;
+
+    font-size: 20px;
+
+}
+
+
+.newsletter-section p {
+
+    margin: 0 0 18px;
+
+    color: #f3dfcc;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+.subscribe-box {
+
+    display: flex;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+}
+
+
+.subscribe-box input {
+
+    flex: 1;
+
+    height: 48px;
+
+    padding: 0 18px;
+
+    border: 1px solid #d4a017;
+
+    border-radius: 25px 0 0 25px;
+
+    outline: none;
+
+    font-size: 15px;
+
+}
+
+
+.subscribe-btn {
+
+    height: 48px;
+
+    padding: 0 28px;
+
+    border: none;
+
+    border-radius: 0 25px 25px 0;
+
+    background: #c73520;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.subscribe-btn:hover {
+
+    background: #d4a017;
+
+    color: #2b1209;
+
+}
+
+
+/* =====================================================
+   PART 1 - INSTAGRAM
+===================================================== */
+
+.instagram-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+}
+
+
+.instagram-link:hover {
+
+    color: #f4c430;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* Instagram Icon */
+
+.instagram-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 2px solid white;
+
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.instagram-icon svg {
+
+    width: 22px;
+
+    height: 22px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+}
+
+
+.instagram-icon circle:last-child {
+
+    fill: currentColor;
+
+    stroke: none;
+
+}
+
+
+.instagram-link:hover .instagram-icon {
+
+    color: #f4c430;
+
+    border-color: #f4c430;
+
+    transform: scale(1.08);
+
+}
+
+
+/* =====================================================
+   PART 3 - NAVIGATION
+===================================================== */
+
+.navigation-column {
+
+    text-align: right;
+
+}
+
+
+.navigation-column h4 {
+
+    margin: 0 0 18px;
+
+    color: #f4c430;
+
+    font-size: 22px;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 13px;
+
+}
+
+
+.footer-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+
+}
+
+
+.footer-links a:hover {
+
+    color: #f4c430;
+
+    transform: translateX(-3px);
+
+}
+
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
+
+.copyright {
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    padding-top: 20px;
+
+    margin-top: 40px !important;
+
+    font-size: 14px;
+
+    color: #f3dfcc !important;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .footer-columns {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px;
+
+    }
+
+
+    .brand-column {
+
+        grid-column: 1 / -1;
+
+        grid-row: 1;
+
+        text-align: center;
+
+    }
+
+
+    .stay-column {
+
+        text-align: left;
+
+    }
+
+
+    .navigation-column {
+
+        text-align: right;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .home-footer {
+
+        padding: 40px 20px 20px;
+
+    }
+
+
+    .footer-columns {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 35px;
+
+        text-align: center;
+
+    }
+
+
+    .stay-column,
+    .brand-column,
+    .navigation-column {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+
+    .instagram-link {
+
+        justify-content: center;
+
+    }
+
+
+    .footer-links {
+
+        align-items: center;
+
+    }
+
+
+    .subscribe-box {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .subscribe-box input {
+
+        border-radius: 25px;
+
+        width: 100%;
+
+    }
+
+
+    .subscribe-btn {
+
+        width: 100%;
+
+        border-radius: 25px;
+
+    }
+
+}
